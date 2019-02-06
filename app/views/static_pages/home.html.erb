@@ -1,9 +1,11 @@
 <center>
 <section>
   <br>
-<h4><p> The Gossip Project by Lille</p></h4>
+<h4><p>The Gossip Project by B2O</p></h4>
  <br><br>
 <p>Voici la liste des Users // Gossips</p>
+
+
 
 <div>
   <% @gossipall.each do |e| %>
@@ -12,7 +14,7 @@
      <%= e.user.first_name %> <%= e.user.last_name %>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><a href="<%=gossips_path(e.id)%>"><%= e.title %></a></li>
+    <li class="list-group-item"><a href="<%=gossip_path(e.id)%>"><%= e.title %></a></li>
   </ul>
 </div>
   <br><br>
