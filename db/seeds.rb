@@ -21,7 +21,7 @@ end
 puts"User Fakers : Generated"
 
 20.times do
- gossip_random = Gossip.create!(content: Faker::Shakespeare.hamlet_quote , user_id: rand(1..User.count), title: Faker::IDNumber.valid)
+ gossip_random = Gossip.create!(content: Faker::Shakespeare.hamlet_quote , user_id: rand(1..User.count), title: Faker::LordOfTheRings.location)
 end
 
 puts"Gossip Fakers : Generated"

@@ -11,12 +11,17 @@
     <li class="list-group-item"><h5>CONTENU : </h5> <%=  g.content   %></li>
     <li class="list-group-item"><h5>CITY : </h5> <%=  g.user.city.name   %></li>
   </ul>
-     <a href="<%=users_path(g.user.id)%>" class="btn btn-primary">Voir auteur</a><br>
+     <a href="<%=user_path(g.user.id)%>" class="btn btn-primary">Voir auteur</a><br>
      <a href="<%=city_path(g.user.city.id)%>" class="btn btn-primary">Voir ville de l'auteur</a><br>
+
+                                     <% if current_user == g.user %>
+
      <a href="<%=edit_gossip_path(g.user_id)%>" class="btn btn-primary">Editer le potin</a><br>
-     <a href="<%=gossip_path(g.user_id)%>" class="btn btn-danger" data-method="DELETE">Supprimer le potin</a><br>
+
+                                               <% else %> <% end %>
+
+
+    <%= link_to "Supprimer", gossip_path(params[:id]), :class => "btn btn-danger", :method => "delete" %><br>
      <a href="<%=gossip_comment_path(g.user_id)%>" class="btn btn-primary">Commenter le potin</a>
-
-
 </div>
 </center>

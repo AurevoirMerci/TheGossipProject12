@@ -11,13 +11,40 @@
       <div class="my-10 p-10 bg-white rounded box-shadow">
 
     <div class="my-10 p-10 bg-white rounded box-shadow">
+
+
+                                <% if current_user %>
+
+    <a href="<%= new_gossip_path %>" class="btn btn-success">Créer un potin</a>
+
+                                      <% else %>
+
+    <a href="<%= new_login_path %>" class="btn btn-success">Créer un potin</a>
+
+                                    <% end %>
+
+    <br><br>
+
+
+
     <h6 class="border-bottom border-gray pb-2 mb-0">Liste de Gossip</h6>
           <% @gossipall.each do |e| %>
           <div class="media text-muted pt-150">
           <p class="media-body pb-2 mb-0 small lh-125 border-bottom border-gray">
             <strong class="d-block text-gray-dark"><%= e.user.first_name %> <%= e.user.last_name %></strong>
             <%= e.title %>
+
+           <% if current_user %>
+
           <a href="http://localhost:3000/gossip/<%= e.id %>">Voir potin</a>
+
+          <% else %>
+
+                    <a href="http://localhost:3000/login">Voir potin</a>
+          <% end %>
+
+
+
           </p>
 
 

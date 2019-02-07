@@ -1,23 +1,27 @@
 class GossipController < ApplicationController
+
+  before_action :authenticate_user, only: [:index]
+
+  def index
+@gossips = Gossip.all
+  end
+  
+
   def show
-      p params
     @gossips = Gossip.all
     @comment = Comment.new
   end
 
-    #@gossips = Gossip.new(params) # avec xxx qui sont les données obtenues à partir du formulaire
-    #puts params
 
 def new
    @gossips = Gossip.new
  end
 
 def create
-	p params
 
-   @gossips = Gossip.new(title: params[:title], content: params[:content], user: User.all.sample)
+   @gossips = Gossip.new(title: params[:title], content: params[:content], user: current_user)
    if @gossips.save
-     render :home
+      redirect_to static_pages_home_path
    else
      render :new
    end
@@ -25,11 +29,7 @@ def create
    gossip_comment = Gossip.create
 
  end
-	# essaie de sauvegarder en base @gossip
-    # si ça marche, il redirige vers la page d'index du site
-    #else
-    # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-    #end
+
 
     def index
     	@gossips = Gossip.all
@@ -51,5 +51,16 @@ def create
       @gossips.destroy
       redirect_to static_pages_home_path
     end
+
+      private
+
+
+    def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
+  end
+
 
 end
