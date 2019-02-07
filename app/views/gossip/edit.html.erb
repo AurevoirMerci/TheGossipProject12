@@ -1,0 +1,21 @@
+<br><br><br>
+<center>
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><U><h2>Editer le potin</h2></U></li>
+    <%= form_for @gossips do |f| %>
+      <div class="form-group">
+      	<label>Editer le titre du potin : </label>
+      	 <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+      	<label>Editer le contenu du potin : </label>
+      	 <%= f.text_area :content, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+      	<button type="submit" class="btn btn-primary">Modifier le potin</button>
+      </div>
+    <% end %>
+
+</div>
+</center>

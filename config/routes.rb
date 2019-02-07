@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   #get '/static_pages/contact', to: 'controller#method'
 
   resources :gossip
+  resources :city
+  resources :gossip do
+ resources :comment
+end
 end

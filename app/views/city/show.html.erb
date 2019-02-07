@@ -1,0 +1,21 @@
+<br><br><br>
+<center>
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><U><h2>Ville de l'auteur</h2></U></li>
+    <li class="list-group-item"><h5>NOM DE LA VILLE : </h5><%= @city.name %></li>
+
+
+
+
+    <% @gossips.each do |e| %>
+    <li class="list-group-item"><h5>POTINS :</h5><%=  e.title %></li>
+    <li class="list-group-item"><h5>POTINS :</h5><%=  e.user %></li>
+    <% end %>
+
+
+
+  </ul>
+
+</div>
+</center>
