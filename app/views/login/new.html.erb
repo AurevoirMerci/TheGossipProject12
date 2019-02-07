@@ -1,0 +1,28 @@
+<br><br><br>
+<center>
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><U><h2>Login</h2></U></li>
+
+    <br>
+    
+   <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+        <%= label_tag 'email' %>
+     <%= text_field_tag 'email' %>
+     <br /> <br />
+
+          <%= label_tag 'mdp' %>
+     <%= text_field_tag 'password' %>
+     <br /> <br />
+
+    <%= submit_tag "Connexion izi" %>
+
+     <br>
+
+    <br>
+    <% end %>
+
+
+</div>
+</center>
