@@ -15,13 +15,13 @@ end
 puts"City Fakers : Generated"
 
 10.times do
-  user_random = User.create!(first_name: Faker::Name.first_name ,last_name: Faker::Name.last_name , age: rand(1..100), description: Faker::Hipster.sentence ,email: Faker::Internet.email , city_id: rand(1..City.count) )
+  user_random = User.create!(first_name: Faker::Name.first_name ,last_name: Faker::Name.last_name , age: rand(1..100), description: Faker::Hipster.sentence, email: Faker::Internet.email, password: Faker::IDNumber.valid, city_id: rand(1..City.count) )
 end
 
 puts"User Fakers : Generated"
 
 20.times do
- gossip_random = Gossip.create!(content: Faker::Shakespeare.hamlet_quote, title: Faker::SiliconValley.invention , user_id: rand(1..User.count))
+ gossip_random = Gossip.create!(content: Faker::Shakespeare.hamlet_quote , user_id: rand(1..User.count), title: Faker::IDNumber.valid)
 end
 
 puts"Gossip Fakers : Generated"

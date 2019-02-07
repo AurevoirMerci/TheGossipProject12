@@ -1,0 +1,50 @@
+<br><br><br>
+<center>
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><U><h2>Créer son compte</h2></U></li>
+
+    <br>
+    
+   <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+        <%= label_tag 'prénom' %>
+     <%= text_field_tag 'first_name' %>
+     <br /> <br />
+
+          <%= label_tag 'nom' %>
+     <%= text_field_tag 'last_name' %>
+     <br /> <br />
+
+          <%= label_tag 'description' %>
+     <%= text_field_tag 'description' %>
+     <br /> <br />
+
+          <%= label_tag 'age' %>
+     <%= text_field_tag 'age' %>
+     <br /> <br />
+
+          <%= label_tag 'email' %>
+     <%= text_field_tag 'email' %>
+     <br /> <br />
+
+          <%= label_tag 'mdp' %>
+     <%= text_field_tag 'password' %>
+     <br /> <br />
+
+               <div class="form-group">
+                      <%= label_tag 'City' %>
+                      <%= select_tag(:city_id, options_for_select(@cities), {:class => 'form-control'}) %>
+                      <br/>
+                    </div>
+
+    <%= submit_tag "Rejoindre la clique" %>
+
+     <br>
+
+    <br>
+    <% end %>
+
+
+</div>
+</center>

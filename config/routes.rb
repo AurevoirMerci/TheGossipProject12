@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   root 'index#show'
   #get 'user/show'
-  get 'user/:id', to: 'user#show' , as: 'users'
+   # get 'users/new', to: 'user#new'
+
+  #get 'user/:id', to: 'user#show' , as: 'users'
   #get 'gossip/show'
-  #get 'welcome/show'
+  get 'welcome/show'
   #get 'gossip/:id', to: 'gossip#show' , as: 'gossips'
   get 'static_pages/team'
   get 'welcome/:user_entry', to: 'welcome#show'
@@ -13,10 +15,14 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #get '/static_pages/contact', to: 'controller#method'
-
+  resources :login
   resources :gossip
   resources :city
+  resources :user
   resources :gossip do
- resources :comment
+  resources :comment
+
+ 
+
 end
 end
