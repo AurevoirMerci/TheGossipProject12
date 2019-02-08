@@ -7,10 +7,9 @@ def create
   user = User.find_by(email: params[:email])
   if user && user.authenticate(params[:password])
   	session[:user_id] = user.id
-
- #login[:user_id] = user.id
-  session#(user)
-  redirect_to static_pages_home_path
+    remember user
+    session#(user)
+    redirect_to static_pages_home_path
   else
   redirect_to new_login_path
   end
