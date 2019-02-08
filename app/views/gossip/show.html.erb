@@ -19,9 +19,17 @@
      <a href="<%=edit_gossip_path(g.id)%>" class="btn btn-primary">Editer le potin</a><br>
 
                                                <% else %> <% end %>
+                                   
+
+                                     <% if current_user == g.user %>
 
 
     <%= link_to "Supprimer", gossip_path(params[:id]), :class => "btn btn-danger", :method => "delete" %><br>
+                                        
+                                                   <% else %>
+      <%= link_to "Supprimer", static_pages_home_path, :class => "btn btn-primary" %><br>
+<% end %>
+
      <a href="<%=gossip_comment_path(g.user_id)%>" class="btn btn-primary">Commenter le potin</a>
 </div>
 </center>
